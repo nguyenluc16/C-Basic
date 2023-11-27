@@ -11,6 +11,7 @@ Bài 5: Giải phương trình bậc 2 tổng quát chưa tối giản, không d
 
 # Các điều cần có: 
 
+
 ## Môi Trường Phát Triển với Visual Studio Code
 
 Nếu  muốn sử dụng Visual Studio Code để phát triển ứng dụng C,  có thể cài đặt các extension và cấu hình cần thiết để có trải nghiệm phát triển tốt nhất.
@@ -88,12 +89,24 @@ $ git diff So sánh sự khác biệt kể từ lần commit cuối cùng của 
 $ git log Xem lịch sử làm việc với git (lịch sử commit)
 ``` 
 
+## Các Nội Dung
 
+### 1. Hello World
 
-# BUỔI 1
-##  Biến:
+Chương trình đơn giản nhất để hiển thị chuỗi "Hello, World!".
 
-Biến trong ngôn ngữ ***C*** là một phần của bộ nhớ được sử dụng để lưu trữ dữ liệu, một biến số gồm có 3 thành phần: 
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
+```
+
+###  2. Biến:
+
+Biến trong ngôn ngữ C là một phần của bộ nhớ được sử dụng để lưu trữ dữ liệu, một biến số gồm có 3 thành phần: 
 * Kiểu dữ liệu: để xác định dữ liệu mà biến hoặc giá trị có thể lưu trữ.
 * Tên biến: là tên gọi giúp nhận ra để phân biệt các biến.
 * Giá trị: có thể là số hoặc chữ tùy theo kiểu dữ liệu của biến.
@@ -103,14 +116,7 @@ Cú pháp để khai báo biến:
 > \<Kiểu dữ liệu\>\<Tên biến\> = \<Giá trị\>; 
 
 
-Ví dụ, sau đây là khai báo một biến số nguyên (integer):
-```c
-int var;
-var = 5;
-```
-Biến có tên là **var** và có kiểu dữ liệu là số nguyên, và **var** được gán giá trị là *5*.
-
-### 1. Kiểu dữ liệu trong C
+### 3. Kiểu dữ liệu trong C
 
 #### 1.1. Kiểu ký tự (char)
 Một giá trị kiểu char chiếm 1byte = 8bit và được biểu diễn thông qua bảng mã ASCII.
@@ -131,29 +137,42 @@ Một giá trị kiểu char chiếm 1byte = 8bit và được biểu diễn th�
 * Đối với kiểu Char (Signed char) = -2^7 đến 2^7-1 (-128 đến 127).
 * Đối với kiểu Unsigned char = 2^8 ( 0 đến 255).
 
-Ví dụ, đây là khai báo biến kiểu unsigned char :
+Ví dụ:
 ```c
 #include <stdio.h>
-unsigned char var = 200;
-int main(){
 
-    printf("size : %dbyte\n ", sizeof(var));
+int main() {
+    int age = 25;
+    float height = 1.75;
+    char gender = 'M';
 
-    printf("ky tu :%c\n",var);
-    var+=200;
-    printf("ky tu :%c\n",var);
-    
+    printf("Age: %d\n", age);
+    printf("Height: %.2f meters\n", height);
+    printf("Gender: %c\n", gender);
+
     return 0;
 }
 ```
-* `#include <stdio.h>` Thư viện nhập, xuất ngôn ngữ C và giao tiếp với màn hình console.
-* ` unsigned char var = 200;` khai báo biến var là kiểu ký tự có giá trị là 200 (giá trị nằm trong phạm vi biểu diễn 0->255).
-* ` int main()` hàm chính thực hiện các lệnh trong chương trình.
-* ` printf("size : %d\n byte", sizeof(var));` dùng để đọc kích thước của biến **var**.
-* ` printf("ky tu :%c\n",var);` xuất ký tự trong bảng mã ASCII.( kq : ╚	).
-* ` var+=100;` giá trị *var* thay đổi thành 400 
-* ` printf("ky tu :%c\n",var);`giá trị **var** vượt quá giới hạn tối đa biểu diễn,
-200+200=144 ( kq : É	).
+Trong đoạn mã C trên, chúng ta thực hiện khai báo và sử dụng biến với các kiểu dữ liệu khác nhau. Dưới đây là giải thích từng phần của mã:
+
+- `#include <stdio.h>`: Dòng này là một tiền xử lý (preprocessor directive) để bao gồm thư viện `stdio.h`, cung cấp các hàm chuẩn cho nhập và xuất trong C.
+
+- `int main() { ... }`: Đây là hàm `main`, hàm chính của chương trình C, nơi bắt đầu thực thi chương trình.
+
+- `int age = 25;`: Biến `age` được khai báo với kiểu dữ liệu là `int` (số nguyên) và được gán giá trị 25.
+
+- `float height = 1.75;`: Biến `height` được khai báo với kiểu dữ liệu là `float` (số thực) và được gán giá trị 1.75.
+
+- `char gender = 'M';`: Biến `gender` được khai báo với kiểu dữ liệu là `char` (ký tự) và được gán giá trị là 'M'.
+
+- `printf("Age: %d\n", age);`: Dòng này sử dụng hàm `printf` để in giá trị của biến `age`. Trong chuỗi định dạng, `%d` là định dạng cho kiểu số nguyên.
+
+- `printf("Height: %.2f meters\n", height);`: Dòng này in giá trị của biến `height` với định dạng số thực (`%f`). `.2` chỉ định rằng chỉ lấy hai chữ số sau dấu thập phân.
+
+- `printf("Gender: %c\n", gender);`: Dòng này in giá trị của biến `gender`. Định dạng `%c` là để in giá trị ký tự.
+
+- `return 0;`: Hàm `main` kết thúc và trả về giá trị 0, làm hiển thị chương trình đã thực hiện thành công.
+
 #### 1.2. Kiểu số nguyên (integer)
 Trong ngôn ngữ C cho phép sử dụng số nguyên kiểu int, số nguyên dài kiểu long và số nguyên không dấu kiểu unsigned có kích thước khác nhau.
 
