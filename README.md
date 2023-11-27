@@ -164,13 +164,7 @@ Một số khái niệm cơ bản khi lập trình C:
 2. Biên dịch bằng trình biên dịch C như gcc hoặc clang để tạo file thực thi
 3. Chạy file thực thi để xem kết quả
 
-Ví dụ:
-
-    gcc chuongtrinh.c -o chuongtrinh
-
-Như vậy là một số cơ bản về cú pháp và cấu trúc của C. Còn nhiều kỹ thuật nâng cao như con trỏ, cấp phát động bộ nhớ để mở rộng tính năng. Thư viện chuẩn và thư viện bên ngoài cũng hỗ trợ thêm khả năng của ngôn ngữ.
-
-
+Cụ thể:
 
 ###  2. Biến:
 
@@ -179,14 +173,16 @@ Biến trong ngôn ngữ C là một phần của bộ nhớ được sử dụn
 * Tên biến: là tên gọi giúp nhận ra để phân biệt các biến.
 * Giá trị: có thể là số hoặc chữ tùy theo kiểu dữ liệu của biến.
 
-Cú pháp để khai báo biến:
+Cú pháp khai báo:
 
 > \<Kiểu dữ liệu\>\<Tên biến\> = \<Giá trị\>; 
 
 
-### 3. Kiểu dữ liệu trong C
+### 3. Các kiểu dữ liệu trong C
 
-#### 1.1. Kiểu ký tự (char)
+#### **Kiểu ký tự (char)**
+
+
 Một giá trị kiểu char chiếm 1byte = 8bit và được biểu diễn thông qua bảng mã ASCII.
 
  Có hai kiểu dữ liệu char : kiểu Char (signed char) và Unsigned char.
@@ -205,7 +201,7 @@ Một giá trị kiểu char chiếm 1byte = 8bit và được biểu diễn th�
 * Đối với kiểu Char (Signed char) = -2^7 đến 2^7-1 (-128 đến 127).
 * Đối với kiểu Unsigned char = 2^8 ( 0 đến 255).
 
-#### 1.2. Kiểu số nguyên (integer)
+#### **Kiểu số nguyên (integer)**
 Trong ngôn ngữ C cho phép sử dụng số nguyên kiểu int, số nguyên dài kiểu long và số nguyên không dấu kiểu unsigned có kích thước khác nhau.
 
 | Kiểu |Kích thước | Phạm vi biểu diễn | Định dạng |
@@ -224,42 +220,7 @@ Trong ngôn ngữ C cho phép sử dụng số nguyên kiểu int, số nguyên 
 * Đối với unsigned int ( chỉ tính số nguyên )
 2->4byte = 8bit -> 16bit sẽ được tính theo cách sau, 2byte = 0 đến 2^16-1 (0 đến 65536 ) và 4byte = 0 đến 2^32-1.
 
-Ví dụ, đây là khai báo kiểu dữ liệu integer kích thước 1 byte 
-```c
-#include <stdio.h>
-#include <stdint.h>
-int8_t var;
-
-int main(int arg, char const *argv){
-    printf("Size :%dbyte\n",sizeof(var));
-    var = 200;
-    printf("var = %d\n",var);
-
-    return 0;
-}
-```
-* `#include <stdio.h>` Thư viện nhập, xuất ngôn ngữ C và giao tiếp với màn hình console.
-* `#include <stdint.h>` Thư viện định nghĩa kiểu dữ liệu có kích thước cố định.
-* `int8_t var;` biến **var** được khai báo kiểu số nguyên (số âm và dương) có kích thước 1byte=8bit (-128 đến 127 hoặc -2^7 đến 2^7-1).
-* `printf("Size :%dbyte\n",sizeof(var));` xác định kích thước của biến var và xuất ra màn hình.
-* ` var = 200;` gán biến **var**=200.
-* ` printf("var = %d\n",var);` xuất màn hình giá trị **var**, nhưng phạm vi biểu diễn của **var** chỉ từ -128 đến 127 nên xuất ra màn hình **var**=-56.
-
-Còn khi khai báo biến unsigned integer có kích thước 1 byte và giá trị biến **var** = 200 thì khi xuất màn hình sẽ hiện giá trị **var** = 200 ( Vì phạm vi biểu diễn từ 0 đến 255).
-```c
-#include <stdio.h>
-#include <stdint.h>
-uint8_t var;
-
-int main(int arg, char const *argv){
-    printf("Size :%dbyte\n",sizeof(var));
-    var = 200;
-    printf("var = %d\n",var);
-
-    return 0;
-}
-``` 
-#### 1.3 Kiểu phẩy động
+#### **Kiểu phẩy động**
 
 Trong ngôn ngữ C, kiểu dữ liệu phẩy động được sử dụng để biểu diễn số thực, hay biểu diễn giá trị có phần thập phân. Có ba kiểu dữ liệu phổ biến:
 | Kiểu |Kích thước | Phạm vi biểu diễn | Định dạng |
@@ -268,79 +229,111 @@ Trong ngôn ngữ C, kiểu dữ liệu phẩy động được sử dụng đ�
 | double |8 byte | 1.7E-308 đến 1.7E+308 | %lf
 | long double | 10 byte | 3.4E-4932 đến 1.1E-4932 | %Lf
 
-Ví dụ, sau đây là khai báo kiểu dữ liệu float
+
+Ví dụ cho Kiểu dữ liệu và biến:
 ```c
 #include <stdio.h>
-float var=3.14;
-int main(){
-    printf("Gia tri var =%f\n",var);
+
+int main() {
+    int age = 25;
+    float height = 1.75;
+    char gender = 'M';
+
+    printf("Age: %d\n", age);
+    printf("Height: %.2f meters\n", height);
+    printf("Gender: %c\n", gender);
+
     return 0;
 }
 ```
-* `#include <stdio.h>` Thư viện nhập, xuất ngôn ngữ C và giao tiếp với màn hình console.
-* `float var=3.14` khai báo biến **var** có kiểu float = 3.14.
-* `printf("Gia tri var =%f\n",var);` xuất ra màn hình giá trị var kiểu định dạng %f, có giá trị 3.140000 (mặc định hiển trị 6 số thập phân).
-* `return 0;` chương trình thực hiện xong và kết thúc.
+Giải thích:
 
-## Hàm:
-Trong ngôn ngữ lập trình, hàm là một khối mã được đặt trên, có thể tái sử dụng, và thực hiện nhiệm vụ cụ thể. Hàm giúp chia nhỏ chương trình thành đơn vị nhỏ, dễ quản lý và tái sử dụng.
+- `#include <stdio.h>`: Dòng này là một tiền xử lý (preprocessor directive) để bao gồm thư viện `stdio.h`, cung cấp các hàm chuẩn cho nhập và xuất trong C.
 
-Một địng nghĩa hàm bao gồm:
+- `int main() { ... }`: Đây là hàm `main`, hàm chính của chương trình C, nơi bắt đầu thực thi chương trình.
 
- ``` c
- <Kiểu trả về> <Tên hàm> ( danh sách tham số)
-{
-     Thân hàm
-} 
+- `int age = 25;`: Biến `age` được khai báo với kiểu dữ liệu là `int` (số nguyên) và được gán giá trị 25.
+
+- `float height = 1.75;`: Biến `height` được khai báo với kiểu dữ liệu là `float` (số thực) và được gán giá trị 1.75.
+
+- `char gender = 'M';`: Biến `gender` được khai báo với kiểu dữ liệu là `char` (ký tự) và được gán giá trị là 'M'.
+
+- `printf("Age: %d\n", age);`: Dòng này sử dụng hàm `printf` để in giá trị của biến `age`. Trong chuỗi định dạng, `%d` là định dạng cho kiểu số nguyên.
+
+- `printf("Height: %.2f meters\n", height);`: Dòng này in giá trị của biến `height` với định dạng số thực (`%f`). `.2` chỉ định rằng chỉ lấy hai chữ số sau dấu thập phân.
+
+- `printf("Gender: %c\n", gender);`: Dòng này in giá trị của biến `gender`. Định dạng `%c` là để in giá trị ký tự.
+
+- `return 0;`: Hàm `main` kết thúc và trả về giá trị 0, làm hiển thị chương trình đã thực hiện thành công.
+
+
+
+
+
+
+
+### 4. Hàm:
+# Hàm trong Ngôn Ngữ C
+
+Hàm là một khối mã lệnh thực hiện một công việc cụ thể và có thể được gọi từ bất kỳ đâu trong chương trình. Trong ngôn ngữ lập trình C, hàm chia thành hai phần chính: khai báo hàm và định nghĩa hàm.
+
+## 1. Khai Báo Hàm
+
+Khai báo hàm mô tả các thuộc tính của hàm mà chương trình cần biết để sử dụng hàm đó. Cấu trúc khai báo hàm như sau:
+
+```c
+// Khai báo hàm
+int add(int a, int b);
 ```
-* Kiểu trả về: là dạng dữ liệu mà hàm trả về, có thể giá về một giá trị hoặc là không trả về giá trị nào cả đó là hàm **void**.
-* Tên hàm: có thể gọi hàm thực giện nhiệm vụ cụ thể và tái sử dụng khi cần.
-* Tham số: khi gọi hàm cần phải truyền danh sách tham số. Danh sách tham số có các kiểu, thứ tự, số lượng tham số của hàm.
-* Thân hàm: Tập hợp các lệnh xác định mà hàm có nhiệm vụ giải quyết khi được gọi hàm.
+
+- `int`: Kiểu dữ liệu của giá trị trả về của hàm.
+- `add`: Tên của hàm.
+- `(int a, int b)`: Danh sách các tham số mà hàm nhận vào.
+
+## 2. Định Nghĩa Hàm
+
+Định nghĩa hàm chứa thân hàm, nơi thực hiện công việc cụ thể. Dưới đây là một ví dụ về định nghĩa hàm `add`:
+
+```c
+// Định nghĩa hàm
+int add(int a, int b) {
+    return a + b;
+}
+```
+
+- `int`: Kiểu dữ liệu của giá trị trả về của hàm.
+- `add`: Tên của hàm.
+- `(int a, int b)`: Danh sách các tham số mà hàm nhận vào.
+- `{ ... }`: Thân hàm, nơi thực hiện công việc và chứa các câu lệnh.
+
+## 3. Gọi Hàm
+
+Hàm có thể được gọi từ bất kỳ đâu trong chương trình bằng cách sử dụng tên hàm và truyền các đối số thích hợp:
+
+```c
+int result = add(5, 3);
+```
+
+- `int result`: Biến để lưu giá trị trả về của hàm.
+- `add`: Tên của hàm.
+- `(5, 3)`: Đối số được truyền vào hàm.
+
+## Tham Số và Giá Trị Trả về
+
+- **Tham số**: Là các giá trị mà hàm nhận vào để thực hiện công việc. Trong ví dụ trên, `a` và `b` là tham số của hàm `add`.
   
-**Sau đây là ví dụ gọi hàm vào chương trình, trả giá trị (không phải hàm void) :**
+- **Giá trị trả về**: Là giá trị mà hàm trả về sau khi thực hiện công việc. Trong ví dụ, hàm `add` trả về tổng của `a` và `b`.
+
+## Hàm Không Trả Giá Trị
+
+Nếu một hàm không trả về giá trị, kiểu dữ liệu của hàm sẽ là `void`. Ví dụ:
 
 ```c
-#include <stdio.h>
-#include <stdint.h>
-
-uint8_t tong (uint8_t a, uint8_t b){ 
-    return a+b;
-}
-
-float thuong(uint8_t a, uint8_t b){
-    if(b==0){
-        printf("ERROR!! mau bang 0\n");
-    }
-    return (float)a/b; 
-}
-
-int main(int arg, char const *argv){
-    printf("tong la: %d \n", tong(7,8));
-
-    printf("thuong la: %f \n", thuong(7,8));
-    return 0;
+// Khai báo hàm không trả về giá trị
+void greet() {
+    printf("Hello!\n");
 }
 ```
-* `#include <stdio.h>` Thư viện nhập, xuất ngôn ngữ C và giao tiếp với màn hình console.
-* `#include <stdint.h>` Thư viện định nghĩa kiểu dữ liệu có kích thước cố định.
-* ` Hàm tổng ` Khai báo hàm **tổng**, kiểu trả về là unsigned int có kích thước 8bit=1byte có 2 tham số **a,b** được khai báo kiểu dữ liệu unsigned int có kích thước 8bit=1byte, thân hàm có chức năng trả về kết quả **a+b** khi được gọi hàm.
-* `Hàm thương` Khai báo hàm **thương**, kiểu trả về là float có kích thước 4byte=32bit có 2 tham số **a,b** được khai báo kiểu dữ liệu unsigned int có kích thước 8bit=1byte, thân hàm sẽ kiểm trả tham số **b** nếu bằng 0 sẽ báo lổi ra màn hình, trả về kết quả là **a/b** vì là khai báo 2 tham số nguyên không dấu nên phải ép kiểu **(float)** để trả về số thực.
-* `printf("tong la: %d \n", tong(7,8));`  Khi được gọi hàm **tong** sẽ truyển 2 tham số 7, 8 và thực hiện phép tính a+b trả về kết quả 15.
-* ` printf("thuong la: %f \n", thuong(7,8));` Khi gọi hàm **thuong** sẽ truyển vào 2 tham số 7, 8 và thực hiện phép tính a/b trả về kết quả 0.875000.
 
-**Sau đây là ví dụ gọi hàm vào chương trình, không trả về giá trị (hàm void) :**
+Hàm không trả giá trị không có `return` hoặc có thể sử dụng `return;` mà không có giá trị kèm theo.
 
-```c
-#include <stdio.h>
-void Hienthi (){   
-    printf("hello world!");
-}
-main(){
-    Hienthi();
-return 0;
-}
-```
-* `#include <stdio.h>` Thư viện nhập, xuất ngôn ngữ C và giao tiếp với màn hình console.
-* `Hàm hiển thị` Khai báo hàm **Hienthi** kiểu trả về void (không trả về giá trị), không có tham số, thân hàm thực hiện lệnh xuất màn hình `hello world!`.
-* `Hàm main` Trong hàm main, hàm Hienthi được gọi và thực hiện lệnh xuất ra màn hình.
