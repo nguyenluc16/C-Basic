@@ -30,7 +30,7 @@ json
         {
             "type": "cppbuild",
             "label": "C/C++: gcc.exe build active file",
-            "command": "D:\\msys64\\mingw64\\bin\\gcc.exe",
+            "command": "D:\\msys64\\mingw64\\bin\\gcc.exe",    //đường dẫn cho trình biên dịch, để thành gcc.exe để đổi máy không lỗi, vì nó được lưu trong biến môi trường rồi. 
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
@@ -61,10 +61,30 @@ json
 
 2. **Sao chép dự án:**
    - Sao chép dự án về máy của bạn bằng cách sử dụng lệnh sau:
-     ```
-     git clone https://github.com/your-username/basic-c-guide.git
-     cd basic-c-guide
-     ```
+    ```
+    $ git init (Khởi tạo git trong thư mục dự án của bạn) - Lệnh này được dùng khi bạn muốn tạo một phiên bản git mới cho một dự án.
+    $ git add .   (Chú ý dấu chấm)    
+    Hoặc:
+
+    $ git add --all  (git add -A)
+
+    $ git add index.html (có thể chỉ định trực tiếp tên tệp cần add)
+
+    $ git clone <url>  (Địa chỉ dự án bạn muốn Clone) - Clone dự án có sẵn trên GitHub. $ git clone <url> folder_name - Clone đồng thời đổi tên dự án theo ý bạn khi save vào local.
+    $ git commit -m "Thông điệp của bạn"
+
+    Git commit: Ghi lại các thay đổi vào kho lưu trữ. (Cần thêm các thông điệp rõ ràng vào mỗi mục commit)
+    $ git push -u origin branch_mane - Push (đẩy) branch vào remote repository.
+
+    $ git push - Push (đẩy) tất cả mọi thay đổi (đã commit) lên remote repository.
+
+    $ git push -d origin branch_mane - Xóa một branch trên remote repository.
+
+    $ git diff So sánh sự khác biệt kể từ lần commit cuối cùng của bạn.
+
+    $ git log Xem lịch sử làm việc với git (lịch sử commit)
+     
+    ```
 
 3. **Chạy ví dụ:**
    - Mỗi thư mục trong dự án có thể chứa một hoặc nhiều ví dụ. Để chạy một ví dụ, hãy vào thư mục tương ứng và sử dụng trình biên dịch C:
