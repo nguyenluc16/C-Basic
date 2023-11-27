@@ -1,7 +1,7 @@
 # C_basic
 Bài 1: Vẽ các hình (Hình chữ nhật, hình vuông, hình tam giác vuông) bằng kí tự *.
 
-Bài 2: Tinh khoang cach hai diem va dien tich tam giac vuong dùng hàm và while Bài 2: Tính khoảng cách giữa hai điểm trong tọa độ Descartes và tính diện tích tam giác khi biết tọa độ ba điểm.
+Bài 2: Tính khoảng cách giữa hai điểm trong tọa độ Descartes và tính diện tích tam giác khi biết tọa độ ba điểm áp dụng while và switch.
 
 Bài 3: Xác định thứ của một ngày bất kì trong năm dùng enum .
 
