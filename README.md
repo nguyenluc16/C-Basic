@@ -1,4 +1,4 @@
-# C/Basic
+# C-Basic
 Bài 1: Vẽ các hình (Hình chữ nhật, hình vuông, hình tam giác vuông) bằng kí tự *.
 
 Bài 2: Tính khoảng cách giữa hai điểm trong tọa độ Descartes và tính diện tích tam giác khi biết tọa độ ba điểm áp dụng while và switch.
