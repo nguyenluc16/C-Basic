@@ -91,6 +91,24 @@ $ git log Xem lịch sử làm việc với git (lịch sử commit)
 
 ## Các Nội Dung
 
+
+# Ngôn ngữ lập trình C
+
+## Giới thiệu
+
+C là ngôn ngữ lập trình mục đích chung được phát triển bởi Dennis Ritchie tại Bell Labs vào những năm 1969-1973. Đây là ngôn ngữ thủ tục ảnh hưởng đến nhiều ngôn ngữ sau này.
+
+C gắn liền với UNIX và được dùng cho lập trình hệ thống như phát triển hệ điều hành, ứng dụng nhúng hệ thống. Ngoài ra còn dùng trong phát triển phần mềm ứng dụng cho các lĩnh vực tính toán hiệu năng cao.
+
+Một số đặc điểm chính:
+
+- Ngôn ngữ lập trình thủ tục 
+- Hỗ trợ cấu trúc dữ liệu và câu lệnh điều khiển
+- Kiểm tra tĩnh các kiểu dữ liệu
+- Thư viện chuẩn phong phú các hàm thông dụng  
+
+## Cơ bản
+
 ### 1. Hello World
 
 Chương trình đơn giản nhất để hiển thị chuỗi "Hello, World!".
@@ -103,6 +121,56 @@ int main() {
     return 0;
 }
 ```
+
+
+Một số khái niệm cơ bản khi lập trình C:
+
+### Biến và kiểu dữ liệu
+
+- Kiểu nguyên thủy: số nguyên, số thực, ký tự, bool
+- Bổ ngữ: `short`, `long`, `signed`, `unsigned` 
+- Định nghĩa kiểu (`typedef`)
+- Biến phải được khai báo trước khi sử dụng
+
+### Toán tử 
+
+- Số học: `+`, `-`, `*`, `/`
+- Bit: `&`, `|`, `^`, `<<`, `>>`  
+- Logic: `&&`, `||`, `!`
+- So sánh: `==`, `!=`, `>`, `<`, vân vân
+
+### Cấu trúc điều khiển
+
+- Rẽ nhánh: `if`, `else if`, `else` 
+- Vòng lặp: `for`, `while`, `do while`
+- Nhánh: `break`, `continue`, `return`
+
+### Hàm
+
+- Hàm do người dùng định nghĩa
+- Tham số truyền theo giá trị 
+- Phạm vi biến giữa các khối lệnh
+
+### Chú thích
+
+- Dòng: `//`
+- Khối: giữa `/*` và `*/`  
+
+## Biên dịch và thực thi
+
+Để biên dịch và chạy chương trình C:
+
+1. Viết code trong trình soạn thảo văn bản và lưu với đuôi `.c`
+2. Biên dịch bằng trình biên dịch C như gcc hoặc clang để tạo file thực thi
+3. Chạy file thực thi để xem kết quả
+
+Ví dụ:
+
+    gcc chuongtrinh.c -o chuongtrinh
+
+Như vậy là một số cơ bản về cú pháp và cấu trúc của C. Còn nhiều kỹ thuật nâng cao như con trỏ, cấp phát động bộ nhớ để mở rộng tính năng. Thư viện chuẩn và thư viện bên ngoài cũng hỗ trợ thêm khả năng của ngôn ngữ.
+
+
 
 ###  2. Biến:
 
@@ -136,42 +204,6 @@ Một giá trị kiểu char chiếm 1byte = 8bit và được biểu diễn th�
 **Cách tính phạm vi biểu diễn :**
 * Đối với kiểu Char (Signed char) = -2^7 đến 2^7-1 (-128 đến 127).
 * Đối với kiểu Unsigned char = 2^8 ( 0 đến 255).
-
-Ví dụ:
-```c
-#include <stdio.h>
-
-int main() {
-    int age = 25;
-    float height = 1.75;
-    char gender = 'M';
-
-    printf("Age: %d\n", age);
-    printf("Height: %.2f meters\n", height);
-    printf("Gender: %c\n", gender);
-
-    return 0;
-}
-```
-Trong đoạn mã C trên, chúng ta thực hiện khai báo và sử dụng biến với các kiểu dữ liệu khác nhau. Dưới đây là giải thích từng phần của mã:
-
-- `#include <stdio.h>`: Dòng này là một tiền xử lý (preprocessor directive) để bao gồm thư viện `stdio.h`, cung cấp các hàm chuẩn cho nhập và xuất trong C.
-
-- `int main() { ... }`: Đây là hàm `main`, hàm chính của chương trình C, nơi bắt đầu thực thi chương trình.
-
-- `int age = 25;`: Biến `age` được khai báo với kiểu dữ liệu là `int` (số nguyên) và được gán giá trị 25.
-
-- `float height = 1.75;`: Biến `height` được khai báo với kiểu dữ liệu là `float` (số thực) và được gán giá trị 1.75.
-
-- `char gender = 'M';`: Biến `gender` được khai báo với kiểu dữ liệu là `char` (ký tự) và được gán giá trị là 'M'.
-
-- `printf("Age: %d\n", age);`: Dòng này sử dụng hàm `printf` để in giá trị của biến `age`. Trong chuỗi định dạng, `%d` là định dạng cho kiểu số nguyên.
-
-- `printf("Height: %.2f meters\n", height);`: Dòng này in giá trị của biến `height` với định dạng số thực (`%f`). `.2` chỉ định rằng chỉ lấy hai chữ số sau dấu thập phân.
-
-- `printf("Gender: %c\n", gender);`: Dòng này in giá trị của biến `gender`. Định dạng `%c` là để in giá trị ký tự.
-
-- `return 0;`: Hàm `main` kết thúc và trả về giá trị 0, làm hiển thị chương trình đã thực hiện thành công.
 
 #### 1.2. Kiểu số nguyên (integer)
 Trong ngôn ngữ C cho phép sử dụng số nguyên kiểu int, số nguyên dài kiểu long và số nguyên không dấu kiểu unsigned có kích thước khác nhau.
