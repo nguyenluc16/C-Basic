@@ -9,6 +9,67 @@ Bài 4: Đảo ngược toàn bộ từ trong 1 câu dùng hàm và pointers.
 
 Bài 5: Giải phương trình bậc 2 tổng quát chưa tối giản, không dùng thư viện có sẵn.
 
+Các điều cần có:
+
+## Môi Trường Phát Triển với Visual Studio Code
+
+Nếu bạn muốn sử dụng Visual Studio Code để phát triển ứng dụng C, bạn có thể cài đặt các extension và cấu hình cần thiết để có trải nghiệm phát triển tốt nhất.
+
+### 1. Cài Đặt Extension C/C++
+
+Trước tiên, bạn cần cài đặt extension "C/C++" của Microsoft để hỗ trợ lập trình C trong VS Code. Mở VS Code và vào tab Extensions, tìm "C/C++" và cài đặt extension của Microsoft.
+
+### 2. Cấu Hình File Launch.json
+
+Để chạy và gỡ lỗi chương trình C trong VS Code, bạn cần cấu hình file `launch.json`. Tạo một file mới trong thư mục `.vscode` của dự án và thêm nội dung sau:
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/your-executable", // Đặt tên của file thực thi của bạn ở đây
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "build"
+    }
+  ]
+}
+```
+
+### 
+1. **Cài đặt trình biên dịch C:**
+   - Để chạy các chương trình C, cần một trình biên dịch C như GCC. [GCC](https://gcc.gnu.org/).
+
+2. **Sao chép dự án:**
+   - Sao chép dự án về máy của bạn bằng cách sử dụng lệnh sau:
+     ```
+     git clone https://github.com/your-username/basic-c-guide.git
+     cd basic-c-guide
+     ```
+
+3. **Chạy ví dụ:**
+   - Mỗi thư mục trong dự án có thể chứa một hoặc nhiều ví dụ. Để chạy một ví dụ, hãy vào thư mục tương ứng và sử dụng trình biên dịch C:
+     ```
+     cd example-folder
+     gcc example.c -o example
+     ./example
+     ```
+
 # BUỔI 1
 ##  Biến:
 
