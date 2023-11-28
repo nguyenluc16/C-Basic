@@ -536,7 +536,7 @@ void greet() {
 Hàm không trả giá trị không có `return` hoặc có thể sử dụng `return;` mà không có giá trị kèm theo.
 
 
- ### Cấu trúc, enum, mảng, chuỗi trong C
+ ### 7. Cấu trúc, enum, mảng, chuỗi trong C
 
 #### Cấu trúc
 
