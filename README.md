@@ -267,17 +267,215 @@ Giải thích:
 - `return 0;`: Hàm `main` kết thúc và trả về giá trị 0, làm hiển thị chương trình đã thực hiện thành công.
 
 
+#### 4. Toán tử
+
+#### Toán tử số học
+
+Các toán tử số học bao gồm:
+
+- Cộng: `+`
+- Trừ: `-`  
+- Nhân: `*`
+- Chia: `/`
+- Phần dư: `%`
+
+Ví dụ:
+
+```c
+int a = 10, b = 5;
+int result = a + b; // result = 15
+```
+#### Toán tử bit
+```c
+int a = 5, b = 3;
+int AND = a & b; // AND lấy bit chung hai số
+int OR = a | b; // OR lấy bit 1 của hai số
+int XOR = a ^ b; // XOR lấy bit khác nhau của hai số 
+int leftShift = a << 1; // Dịch trái 1 bit
+int rightShift = a >> 1; // Dịch phải 1 bit
+```
+#### Toán tử gán 
+
+Các toán tử gán phổ biến:
+
+- Gán = 
+- Gán cộng +=
+- Gán trừ -=
+- Gán nhân *= 
+- Gán chia /=
+- Gán phần dư %=
+
+Ví dụ: 
+
+```c
+int a = 10;
+a += 5; // a = 15
+```
+
+#### Toán tử so sánh
+
+Các toán tử so sánh:
+
+- Bằng ==
+- Không bằng !=
+- Lớn hơn >
+- Nhỏ hơn <
+- Lớn hơn hoặc bằng >=  
+- Nhỏ hơn hoặc bằng <=
+
+Ví dụ:
+
+```c
+if(a == b) {
+  // code
+}
+```
+
+#### Toán tử logic
+
+Các toán tử logic: 
+
+- AND &&
+- OR ||
+- NOT !
+
+Ví dụ:
+
+```c 
+if(a > 0 && b < 10) {
+  // code
+}
+```
+
+#### Toán tử địa chỉ
+
+- Lấy địa chỉ: &
+- Con trỏ: *
+
+Ví dụ: 
+
+```c
+int a = 5;
+int* ptr = &a;
+```
+
+### 5. Cấu trúc điều khiển
+
+Cấu trúc điều khiển cho phép thực hiện các hành động lặp đi lặp lại hoặc điều hướng dòng chảy chương trình dựa trên điều kiện.
+
+#### Rẽ nhánh
+
+If 
+
+`if` kiểm tra điều kiện và thực hiện một khối lệnh nếu điều kiện đúng:
+
+```c
+if(điều_kiện) {
+  // code nếu điều kiện đúng
+}
+```
+
+Else if
+
+`else if` kiểm tra thêm điều kiện khi điều kiện của `if` sai:
+
+```c 
+if(điều_kiện_1) {
+  // code
+} else if(điều_kiện_2) {
+  // code
+}
+```
+
+Else 
+
+`else` thực hiện khối lệnh khi tất cả điều kiện trước đó sai: 
+
+```c
+if(điều_kiện_1) {
+  // code 
+} else {
+  // code
+}
+```
+
+#### Vòng lặp
+
+For
+
+Lặp qua một khối lệnh đã xác định số lần:
+
+```c
+for(khoi_tao; dieu_kien; tang_giam) {
+  // code lặp
+}
+```
+
+ While
+
+Lặp khối lệnh miễn điều kiện vẫn đúng:
+
+```c
+while(điều_kiện) {
+  // code lặp
+} 
+```
+
+ Do while 
+
+Lặp khối lệnh ít nhất 1 lần rồi mới kiểm tra điều kiện:
+
+```c
+do {
+  // code lặp
+} while (điều_kiện);
+```
+
+#### Nhánh
+
+ Break
+
+Dừng vòng lặp hoặc switch case: 
+
+```c
+for(;;) {
+  if(dieu_kien)
+    break;
+}
+```
+
+ Continue 
+
+Bỏ qua lần lặp hiện tại:
+
+```c
+for(;;) {
+  if(dieu_kien) 
+    continue;
+
+  // code 
+}
+``` 
+
+ Return
+
+Trả về khỏi hàm:
+
+```c
+int function() {
+  return 0;
+}
+```
 
 
 
 
 
-### 4. Hàm:
-# Hàm trong Ngôn Ngữ C
+### 6. Hàm trong Ngôn Ngữ C
 
 Hàm là một khối mã lệnh thực hiện một công việc cụ thể và có thể được gọi từ bất kỳ đâu trong chương trình. Trong ngôn ngữ lập trình C, hàm chia thành hai phần chính: khai báo hàm và định nghĩa hàm.
 
-## 1. Khai Báo Hàm
+####  Khai Báo Hàm
 
 Khai báo hàm mô tả các thuộc tính của hàm mà chương trình cần biết để sử dụng hàm đó. Cấu trúc khai báo hàm như sau:
 
@@ -290,7 +488,7 @@ int add(int a, int b);
 - `add`: Tên của hàm.
 - `(int a, int b)`: Danh sách các tham số mà hàm nhận vào.
 
-## 2. Định Nghĩa Hàm
+#### Định Nghĩa Hàm
 
 Định nghĩa hàm chứa thân hàm, nơi thực hiện công việc cụ thể. Dưới đây là một ví dụ về định nghĩa hàm `add`:
 
@@ -306,7 +504,7 @@ int add(int a, int b) {
 - `(int a, int b)`: Danh sách các tham số mà hàm nhận vào.
 - `{ ... }`: Thân hàm, nơi thực hiện công việc và chứa các câu lệnh.
 
-## 3. Gọi Hàm
+#### Gọi Hàm
 
 Hàm có thể được gọi từ bất kỳ đâu trong chương trình bằng cách sử dụng tên hàm và truyền các đối số thích hợp:
 
@@ -318,7 +516,7 @@ int result = add(5, 3);
 - `add`: Tên của hàm.
 - `(5, 3)`: Đối số được truyền vào hàm.
 
-## Tham Số và Giá Trị Trả về
+#### Tham Số và Giá Trị Trả về
 
 - **Tham số**: Là các giá trị mà hàm nhận vào để thực hiện công việc. Trong ví dụ trên, `a` và `b` là tham số của hàm `add`.
   
@@ -337,3 +535,96 @@ void greet() {
 
 Hàm không trả giá trị không có `return` hoặc có thể sử dụng `return;` mà không có giá trị kèm theo.
 
+
+ ### Cấu trúc, enum, mảng, chuỗi trong C
+
+#### Cấu trúc
+
+Cấu trúc cho phép kết hợp nhiều kiểu dữ liệu thành một đơn vị.
+
+Ví dụ cấu trúc Sinh viên:
+
+```c
+struct SinhVien {
+  char name[50];
+  int age;
+  float mark;
+};
+
+int main() {
+  struct SinhVien sv1;
+  
+  strcpy(sv1.name, "John");
+  sv1.age = 20;
+  sv1.mark = 8.5;
+
+  return 0;
+}
+```
+Cấu trúc Sinh viên
+Khai báo cấu trúc SinhVien gồm 3 thành phần: tên, tuổi, điểm.
+Khởi tạo biến cấu trúc sv1.
+Sử dụng hàm strcpy sao chép chuỗi vào thành phần tên.
+Gán giá trị cho thành phần tuổi và điểm.
+
+#### Enum 
+
+Định nghĩa kiểu dữ liệu cho các giá trị số.
+
+Ví dụ kiểu màu sắc:
+
+```c 
+enum Color {RED, GREEN, BLUE};
+
+int main() {
+  enum Color color = GREEN;
+
+  return 0; 
+}
+```
+Enum màu sắc
+Định nghĩa kiểu enum Color với các giá trị tên RED, GREEN, BLUE.
+Khởi tạo biến color kiểu enum = GREEN.
+
+#### Mảng
+
+Lưu trữ tập hợp các phần tử cùng kiểu.
+
+Ví dụ mảng số nguyên:
+
+```c
+int numbers[5]; 
+
+int main() {
+  numbers[0] = 10;
+  numbers[1] = 20;
+
+  return 0;
+}
+```
+Mảng số nguyên
+Khai báo mảng 5 phần tử kiểu int.
+Gán giá trị cho các phần tử mảng bằng chỉ số.
+
+#### Chuỗi 
+
+Lưu trữ chuỗi ký tự kết thúc bằng '\0'.
+
+Ví dụ đếm ký tự trong chuỗi: 
+
+```c
+int main() {
+  char str[] = "Hello";
+  int count = 0;
+  
+  while(str[count] != '\0') {
+    count++; 
+  }
+
+  return 0;
+}
+```
+Đếm ký tự chuỗi
+Khởi tạo chuỗi "Hello".
+Dùng vòng lặp đếm ký tự cho đến ký tự kết thúc '\0'.
+Trả về đếm ký tự.
